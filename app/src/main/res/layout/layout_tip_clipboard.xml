@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hawk.android.browser.clipboard.ViewContainer xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#77000000">
+
+    <LinearLayout
+        android:id="@+id/pop_view_content_view"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="#d9000000"
+        android:orientation="vertical"
+        android:paddingLeft="19dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginTop="12dp"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:includeFontPadding="false"
+            android:text="copy_enter"
+            android:textColor="#fff"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/pop_view_text"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_weight="1"            android:layout_marginTop="4dp"
+            android:gravity="left"
+            android:singleLine="true"
+            android:text="https://www.bilibili.com "
+            android:includeFontPadding="false"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+    </LinearLayout>
+</com.hawk.android.browser.clipboard.ViewContainer>

@@ -7,6 +7,19 @@
     android:orientation="vertical"
     tools:context=".activity.MainActivity">
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="countdownlatch使用"
+        android:id="@+id/bt_countdownlatch"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CyclicBarrier使用"
+        android:id="@+id/bt_cyclicbarrier"
+        />
 
 
 </LinearLayout>

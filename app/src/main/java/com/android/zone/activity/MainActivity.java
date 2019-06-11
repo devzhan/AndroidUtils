@@ -13,6 +13,7 @@ import com.android.zone.utils.LogUtil;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "MainActivity";
     private Button mButtonWebView;
+    private Button mButtonCountDownLatch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initView() {
         mButtonWebView = findViewById(R.id.bt_wv);
         mButtonWebView.setOnClickListener(this);
+        mButtonCountDownLatch = findViewById(R.id.bt_countdownlatch);
+        mButtonCountDownLatch.setOnClickListener(this);
     }
 
     @Override
@@ -34,6 +37,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int viewId = v.getId();
         if (viewId ==R.id.bt_wv){
             Intent intent = new Intent(MainActivity.this,WebViewActivity.class);
+            startActivity(intent);
+        }else if (viewId ==R.id.bt_countdownlatch){
+            Intent intent = new Intent(MainActivity.this,CountDownLatchActivity.class);
             startActivity(intent);
         }
     }

@@ -7,17 +7,6 @@
     android:orientation="vertical"
     tools:context=".activity.MainActivity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="webview"
-        android:id="@+id/bt_wv"
-         />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CountDownLatch"
-        android:id="@+id/bt_countdownlatch"
-        />
+
 
 </LinearLayout>

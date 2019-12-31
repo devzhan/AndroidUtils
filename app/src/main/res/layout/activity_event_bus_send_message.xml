@@ -10,20 +10,9 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="webview"
-        android:id="@+id/bt_wv"
-         />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CountDownLatch"
-        android:id="@+id/bt_countdownlatch"
+        android:text="发送消息"
+        android:id="@+id/bt_send"
         />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="EventBus"
-        android:id="@+id/bt_eventbus"
-        />
+
 </LinearLayout>

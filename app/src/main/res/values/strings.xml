@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AndroidUtils</string>
+    <string name="title_activity_even_bus_setup">EvenBusSetupActivity</string>
+    <string name="title_activity_event_bus_send_message">EventBusSendMessage</string>
 </resources>

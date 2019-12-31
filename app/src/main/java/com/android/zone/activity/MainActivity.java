@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.android.zone.R;
+import com.android.zone.eventbus.EvenBusSetupActivity;
 import com.android.zone.retrofit.Connections;
 import com.android.zone.utils.LogMonitor;
 import com.android.zone.utils.LogUtil;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String TAG = "MainActivity";
     private Button mButtonWebView;
     private Button mButtonCountDownLatch;
+    private Button mButtonEventBus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mButtonWebView = findViewById(R.id.bt_wv);
         mButtonWebView.setOnClickListener(this);
         mButtonCountDownLatch = findViewById(R.id.bt_countdownlatch);
+        mButtonEventBus = findViewById(R.id.bt_eventbus);
+        mButtonEventBus.setOnClickListener(this);
         mButtonCountDownLatch.setOnClickListener(this);
         Looper.getMainLooper().setMessageLogging(new Printer() {
             private static final String START = ">>>>> Dispatching";
@@ -71,8 +75,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-//            Intent intent = new Intent(MainActivity.this,CountDownLatchActivity.class);
-//            startActivity(intent);
+        }else if (viewId ==R.id.bt_eventbus){
+            Intent intent = new Intent(MainActivity.this, EvenBusSetupActivity.class);
+            startActivity(intent);
+
         }
     }
 

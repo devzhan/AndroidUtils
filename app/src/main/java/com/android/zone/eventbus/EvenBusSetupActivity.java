@@ -14,6 +14,7 @@ import com.android.zone.R;
 import com.android.zone.utils.LogUtil;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.EventBusBuilder;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 

@@ -53,11 +53,13 @@ class SubscriberMethodFinder {
     }
 
     List<SubscriberMethod> findSubscriberMethods(Class<?> subscriberClass) {
+        //先从缓存去获取是否已经注添加到注册的列表中
         List<SubscriberMethod> subscriberMethods = METHOD_CACHE.get(subscriberClass);
         if (subscriberMethods != null) {
             return subscriberMethods;
         }
 
+        //    EventBusBuilder 中注释：Forces the use of reflection even if there's a generated index (default: false). */
         if (ignoreGeneratedIndex) {
             subscriberMethods = findUsingReflection(subscriberClass);
         } else {
@@ -77,6 +79,7 @@ class SubscriberMethodFinder {
         findState.initForSubscriber(subscriberClass);
         while (findState.clazz != null) {
             findState.subscriberInfo = getSubscriberInfo(findState);
+            // subscriberInfo 为空直接通过反射机制
             if (findState.subscriberInfo != null) {
                 SubscriberMethod[] array = findState.subscriberInfo.getSubscriberMethods();
                 for (SubscriberMethod subscriberMethod : array) {
@@ -126,6 +129,7 @@ class SubscriberMethodFinder {
                 return superclassInfo;
             }
         }
+        //subscriberInfoIndexes 采用单例模式创建会为空
         if (subscriberInfoIndexes != null) {
             for (SubscriberInfoIndex index : subscriberInfoIndexes) {
                 SubscriberInfo info = index.getSubscriberInfo(findState.clazz);
@@ -200,6 +204,7 @@ class SubscriberMethodFinder {
         SubscriberInfo subscriberInfo;
 
         void initForSubscriber(Class<?> subscriberClass) {
+            // 给clazz 属性赋值
             this.subscriberClass = clazz = subscriberClass;
             skipSuperClasses = false;
             subscriberInfo = null;

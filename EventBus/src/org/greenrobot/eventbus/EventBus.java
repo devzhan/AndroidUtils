@@ -77,6 +77,7 @@ public class EventBus {
     private final Logger logger;
 
     /** Convenience singleton for apps using a process-wide EventBus instance. *
+     * 双重校验锁
      */
 
     public static EventBus getDefault() {
@@ -141,6 +142,7 @@ public class EventBus {
      */
     public void register(Object subscriber) {
         Class<?> subscriberClass = subscriber.getClass();
+        //返回已经注册的方法
         List<SubscriberMethod> subscriberMethods = subscriberMethodFinder.findSubscriberMethods(subscriberClass);
         synchronized (this) {
             for (SubscriberMethod subscriberMethod : subscriberMethods) {

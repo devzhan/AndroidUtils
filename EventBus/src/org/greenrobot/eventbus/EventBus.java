@@ -146,6 +146,7 @@ public class EventBus {
         List<SubscriberMethod> subscriberMethods = subscriberMethodFinder.findSubscriberMethods(subscriberClass);
         synchronized (this) {
             for (SubscriberMethod subscriberMethod : subscriberMethods) {
+                //将该类（subscriber）中符合EventBus 既定规则的注解方法注册到 typesBySubscriber 中
                 subscribe(subscriber, subscriberMethod);
             }
         }

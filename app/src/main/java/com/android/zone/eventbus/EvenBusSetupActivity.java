@@ -2,11 +2,7 @@ package com.android.zone.eventbus;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -14,7 +10,6 @@ import com.android.zone.R;
 import com.android.zone.utils.LogUtil;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.EventBusBuilder;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
@@ -58,4 +53,10 @@ public class EvenBusSetupActivity extends AppCompatActivity {
     private void unregisterEventBus() {
         EventBus.getDefault().unregister(this);
     }
+
+//    @Override
+//    public void onBackPressed() {
+//        super.onBackPressed();
+//        finish();
+//    }
 }

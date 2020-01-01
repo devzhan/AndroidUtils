@@ -129,7 +129,7 @@ class SubscriberMethodFinder {
                 return superclassInfo;
             }
         }
-        //subscriberInfoIndexes 采用单例模式创建会为空
+        //subscriberInfoIndexes 为空
         if (subscriberInfoIndexes != null) {
             for (SubscriberInfoIndex index : subscriberInfoIndexes) {
                 SubscriberInfo info = index.getSubscriberInfo(findState.clazz);

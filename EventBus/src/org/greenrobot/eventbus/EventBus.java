@@ -269,6 +269,7 @@ public class EventBus {
             }
             try {
                 while (!eventQueue.isEmpty()) {
+                    //发送消息
                     postSingleEvent(eventQueue.remove(0), postingState);
                 }
             } finally {
@@ -431,6 +432,12 @@ public class EventBus {
         return false;
     }
 
+    /**
+     * 执行相关方法
+     * @param subscription
+     * @param event
+     * @param isMainThread
+     */
     private void postToSubscription(Subscription subscription, Object event, boolean isMainThread) {
         switch (subscription.subscriberMethod.threadMode) {
             case POSTING:

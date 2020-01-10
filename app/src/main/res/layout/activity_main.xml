@@ -26,4 +26,22 @@
         android:text="EventBus"
         android:id="@+id/bt_eventbus"
         />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ActivityResult"
+        android:id="@+id/bt_result"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RxAndroid"
+        android:id="@+id/bt_rx"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retrofit"
+        android:id="@+id/bt_retrofit"
+        />
 </LinearLayout>

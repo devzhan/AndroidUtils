@@ -1,8 +1,5 @@
 package com.android.zone.retrofit;
 
-/**
- */
-
 public abstract class ResponseHandler<T> implements ProtocolHandler<T> {
 
     @Override
@@ -15,6 +12,6 @@ public abstract class ResponseHandler<T> implements ProtocolHandler<T> {
         fail(fail_code, msg);
     }
 
-    protected abstract void success(T data);
-    protected abstract void fail(int err, String extra_cause);
+    public abstract void success(T data);
+    public abstract void fail(int err, String extra_cause);
 }

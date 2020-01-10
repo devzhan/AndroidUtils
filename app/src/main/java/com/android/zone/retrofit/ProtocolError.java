@@ -1,5 +1,8 @@
 package com.android.zone.retrofit;
 
+/**
+ * Created by wenbiao.xie on 2017/3/10.
+ */
 
 public interface ProtocolError {
     int PROTOCOL_INVALID = 100;

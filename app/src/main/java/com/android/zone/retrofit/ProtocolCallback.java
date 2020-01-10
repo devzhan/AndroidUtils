@@ -1,24 +1,19 @@
 package com.android.zone.retrofit;
 
+
 import com.android.zone.utils.LogUtil;
 
-import java.io.IOException;
-import java.io.InterruptedIOException;
-import java.net.SocketTimeoutException;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
-import retrofit.Callback;
-import retrofit.Response;
-import retrofit.Retrofit;
-
-
-public abstract class ProtocolCallback<T> implements Callback<Protocol<T>>, ProtocolHandler<T> {
+public abstract class ProtocolCallback<T> implements Callback<Protocol<T>>, ProtocolHandler<T>  {
     private static final String TAG = "ProtocolCallback";
 
     @Override
-    public void onResponse(Response<Protocol<T>> response, Retrofit retrofit) {
-        if (!response.isSuccess()) {
-            int err = httpStatusToNetworkError(response.code());
-            onFailure(err, null);
+    public void onResponse(Call<Protocol<T>> call, Response<Protocol<T>> response) {
+        if (!response.isSuccessful()) {
+            onFailure(0, null);
             return;
         }
 
@@ -37,37 +32,18 @@ public abstract class ProtocolCallback<T> implements Callback<Protocol<T>>, Prot
         onSuccess(data);
     }
 
-    protected int httpStatusToNetworkError(int status) {
-        return NetworkError.toNetworkErrorWithHttpStatus(status);
+    @Override
+    public void onFailure(Call<Protocol<T>> call, Throwable t) {
+        LogUtil.i(TAG, "onResponse failure err = %d, msg = %s", t, t.getMessage());
+        onFailure(0, t.getMessage());
     }
+
+
 
     protected boolean isSuccessful(int data_code) {
         return (data_code == ProtocolError.PROTOCOL_SUCCESS
                 || data_code == ProtocolError.PROTOCOL_SUCCESS2
         ||data_code == ProtocolError.PROTOCOL_SUCCESS3);
-    }
-
-    @Override
-    public void onFailure(Throwable t) {
-
-        int err = NetworkError.FAIL_UNKNOWN;
-        if (t instanceof SocketTimeoutException) {
-            err = NetworkError.SOCKET_TIMEOUT;
-        }
-
-        else if (t instanceof InterruptedIOException) {
-            err = NetworkError.CANCEL;
-        }
-
-        else if (t instanceof IOException) {
-            if ("Canceled".equals(t.getMessage()))
-                err = NetworkError.CANCEL;
-            else
-                err = NetworkError.FAIL_IO_ERROR;
-        }
-
-        LogUtil.i(TAG, "onResponse failure err = %d, msg = %s", err, t.getMessage());
-        onFailure(err, t.getMessage());
     }
 }
 

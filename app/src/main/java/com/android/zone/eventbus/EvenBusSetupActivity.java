@@ -54,9 +54,9 @@ public class EvenBusSetupActivity extends AppCompatActivity {
         EventBus.getDefault().unregister(this);
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        super.onBackPressed();
-//        finish();
-//    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

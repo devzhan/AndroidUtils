@@ -1,6 +1,5 @@
 package com.android.zone.retrofit;
 
-
 public class ProxyProtocolCallback<T> extends ProtocolCallback<T> {
 
     private final ProtocolHandler<T> mHandler;

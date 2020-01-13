@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import com.android.zone.R;
 import com.android.zone.eventbus.EvenBusSetupActivity;
+import com.android.zone.lifecycle.LifecycleActivity;
 import com.android.zone.retrofit.RetrofitActivity;
 import com.android.zone.rxandroid.RxAndroidActivity;
 import com.android.zone.utils.LogMonitor;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mButton;
     private Button mButtonRxAndroid;
     private Button mButtonRetrofit;
+    private Button mButtonLifeCycle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -156,6 +158,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mButtonRxAndroid.setOnClickListener(this);
         mButtonRetrofit = findViewById(R.id.bt_retrofit);
         mButtonRetrofit.setOnClickListener(this);
+        mButtonLifeCycle = findViewById(R.id.bt_lifecycle);
+        mButtonLifeCycle.setOnClickListener(this);
+
         Looper.getMainLooper().setMessageLogging(new Printer() {
             private static final String START = ">>>>> Dispatching";
             private static final String END = "<<<<< Finished";
@@ -197,6 +202,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(i);
         }else if (viewId== R.id.bt_retrofit){
             Intent i = new Intent(this, RetrofitActivity.class);
+            startActivity(i);
+        }else if (viewId== R.id.bt_lifecycle){
+            Intent i = new Intent(this, LifecycleActivity.class);
             startActivity(i);
         }
     }

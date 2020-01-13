@@ -44,4 +44,10 @@
         android:text="Retrofit"
         android:id="@+id/bt_retrofit"
         />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LifeCycle"
+        android:id="@+id/bt_lifecycle"
+        />
 </LinearLayout>

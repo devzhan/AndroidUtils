@@ -50,4 +50,16 @@
         android:text="LifeCycle"
         android:id="@+id/bt_lifecycle"
         />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Leak"
+        android:id="@+id/bt_leak"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="anr"
+        android:id="@+id/bt_anr"
+        />
 </LinearLayout>

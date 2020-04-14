@@ -32,9 +32,15 @@ public class EvenBusSetupActivity extends AppCompatActivity {
             }
         });
         registerEventBus();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        }).start();
     }
 
-    @Subscribe(threadMode = ThreadMode.POSTING)
+    @Subscribe(threadMode = ThreadMode.BACKGROUND)
     public void onEventMessageReceived(EventMessage eventMessage) {
         LogUtil.i(TAG,"onMessageEventPost message name is: %s",eventMessage.getName());
         mTextReceive.setText("接收到的消息是："+eventMessage.getName());

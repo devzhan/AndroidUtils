@@ -10,6 +10,8 @@ import android.view.View;
 import com.android.zone.R;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 public class EventBusSendMessageActivity extends AppCompatActivity {
 
@@ -20,13 +22,27 @@ public class EventBusSendMessageActivity extends AppCompatActivity {
         findViewById(R.id.bt_send).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EventMessage eventMessage = new EventMessage();
-                eventMessage.setName("这是EventBus 发送的消息");
-                EventBus.getDefault().post(eventMessage);
-                finish();
+//                EventMessage eventMessage = new EventMessage();
+//                eventMessage.setName("这是EventBus 发送的消息");
+//                EventBus.getDefault().post(eventMessage);
+//                finish();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        sentMessage();
+                    }
+                }).start();
+
             }
         });
 
+
+    }
+    private void sentMessage(){
+        EventMessage eventMessage = new EventMessage();
+        eventMessage.setName("这是EventBus 发送的消息");
+        EventBus.getDefault().post(eventMessage);
+        finish();
     }
 
 }

@@ -2,6 +2,7 @@ package com.android.zone.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.webkit.WebView;
 
 import com.android.zone.R;
@@ -19,10 +20,13 @@ public class WebViewActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        String url = "https://blog.csdn.net/lanxingfeifei/article/details/52045082";
+//        String url = "https://blog.csdn.net/lanxingfeifei/article/details/52045082";
+        String url = "http://music.163.com/m/song?id=1400256289&market=baiduqk";
 
         mWebView = findViewById(R.id.webview);
         mWebView.loadUrl(url);
+        int a =1^2;
+        Log.i("AA","a==="+a);
     }
 
     @Override

@@ -12,7 +12,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.android.zone.R;
+import com.android.zone.anr.ANRActivity;
 import com.android.zone.eventbus.EvenBusSetupActivity;
+import com.android.zone.leak.MemoryLeakActivity;
 import com.android.zone.lifecycle.LifecycleActivity;
 import com.android.zone.retrofit.RetrofitActivity;
 import com.android.zone.rxandroid.RxAndroidActivity;
@@ -41,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mButtonRxAndroid;
     private Button mButtonRetrofit;
     private Button mButtonLifeCycle;
+    private Button mButtonLeak;
+    private Button mButtonAnr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -160,6 +164,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mButtonRetrofit.setOnClickListener(this);
         mButtonLifeCycle = findViewById(R.id.bt_lifecycle);
         mButtonLifeCycle.setOnClickListener(this);
+        mButtonLeak = findViewById(R.id.bt_leak);
+        mButtonLeak.setOnClickListener(this);
+        mButtonAnr = findViewById(R.id.bt_anr);
+        mButtonAnr.setOnClickListener(this);
 
         Looper.getMainLooper().setMessageLogging(new Printer() {
             private static final String START = ">>>>> Dispatching";
@@ -205,6 +213,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(i);
         }else if (viewId== R.id.bt_lifecycle){
             Intent i = new Intent(this, LifecycleActivity.class);
+            startActivity(i);
+        }else if (viewId== R.id.bt_leak){
+            Intent i = new Intent(this, MemoryLeakActivity.class);
+            startActivity(i);
+        }else if (viewId== R.id.bt_anr){
+            Intent i = new Intent(this, ANRActivity.class);
             startActivity(i);
         }
     }

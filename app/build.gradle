@@ -48,5 +48,10 @@ dependencies {
     implementation "android.arch.lifecycle:livedata:1.1.1"
     implementation "android.arch.lifecycle:viewmodel:1.1.1"
 
+    debugApi 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseApi 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+
+    implementation 'com.github.markzhai:blockcanary-android:1.5.0'
+
 
 }
